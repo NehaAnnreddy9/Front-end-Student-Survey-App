@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Styling the Body element i.e. Color,
+		Font, Alignment */
+        h1{
+            text-align: center;
+          }
+        h5{
+            text-align: center;
+        }
+    
+              /* Styling the Form (Color, Padding, Shadow) */
+              form {
+                  background-color:#c5d5cb;
+                  max-width: 500px;
+                  margin: 50px auto;
+                  padding: 30px 20px;
+              }
+      
+              /* Styling form-control Class */
+              
+              
+          p {
+                font-family: Verdana;
+                text-align: left;
+                font-size: 20px
+          }
+      
+               
+      
+              /* Styling form-control Radio
+              button and Checkbox */
+              .form-control input[type="radio"],
+              .form-control input[type="checkbox"] {
+                  display: inline-block;
+                  width: auto;
+              }
+      
+              /* Styling Button */
+              button {
+                  background-color: #c5d5cb;
+                  border: 1px solid #777;
+                  border-radius: 2px;
+                  font-family: inherit;
+                  font-size: 21px;
+                  display: inline;
+                  width: 50%;
+                  margin-top: 50px;
+                  margin-bottom: 20px;
+          }
+          

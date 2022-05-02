@@ -1,0 +1,96 @@
+
+		<h1>STUDENT SURVEY FORM</h1>
+		<h5>Fields with * are required fields</h5>
+		<div class="form">
+		<form  #surveyForm = "ngForm" >
+		<!-- <form method="post" action="localhost:8080/swe645-restful-api/restful/survey/create" >  -->
+
+			<!---<h2>Personal Info (Date: {{today}})</h2>-->
+			<label class="left" for="fName">First Name*</label>
+			<input  class="whole" type="text" id="firstName" name="fName" placeholder="First name..." required="required" [(ngModel)]="message.firstName" />
+      <br><br>
+			<label class="left" for="lName">Last Name*</label>
+			<input  class="whole" type="text" id="lastName" name="lName" placeholder="Last name..." required="required"  [(ngModel)]="message.lastName" />
+			<br><br>
+			<label class="left" for="address">Street Address*</label>
+			<input class="whole" type="text" id="streetaddress" name="address" placeholder="Street Address..." required="required" [(ngModel)]="message.streetaddress" />
+			<br><br>
+			<label class="left" for="city">City*</label>
+			<input class="whole" type="text" id="city" name="city" placeholder="eg:Fairfax" required="required" [(ngModel)]="message.city" />
+      <br><br>
+			<label class="left" for="state">State/Province*</label>
+			<input class="whole" type="text" id="state" name="state" placeholder="eg:Virginia" required="required" [(ngModel)]="message.state" />
+			<br><br>
+			
+			<label class="left" for="zip">Zip*</label>
+			<input class="whole" type="text" id="zip" name="zip" placeholder="eg:11111" required="required" [(ngModel)]="message.zip" />
+      <br><br>
+			<label class="left" for="phone">Phone Number*</label>
+			<input class="whole" type="text" id="phone" name="phone" placeholder="eg:111-111-111" required="required" [(ngModel)]="message.phone" />
+			<br><br>
+			
+			<label class="left" for="email">Email*</label>
+			<input class="whole" type="text" id="email" name="email" placeholder="***@***" required="required" [(ngModel)]="message.email" />
+			<br><br>
+			<label class="left" for="date">Date of Survey*</label>
+			<input class="whole" type="text" id="date" name="date" placeholder="mm/dd/yyyy" required="required" [(ngModel)]="message.date" />
+			<!-- <label class="right" for="date">{{today}}</label> -->
+			<br><br>
+			
+			<p class="question">What do you like the most about the campus?</p>
+			<label class="box" for="like1">1) {{likes_value[0]}}</label>
+			<input type="checkbox" id="like1" name="campus"  value="likes_value[0]" [(ngModel)]="message.likes_temp[0]" />
+			<br>
+			<label class="box" for="like2">2) {{likes_value[1]}}</label>
+			<input type="checkbox" id="like2" name="campus" value="likes_value[1]" [(ngModel)]="message.likes_temp[1]" />
+			<br>
+			<label class="box" for="like3">3) {{likes_value[2]}}</label>
+			<input type="checkbox" id="like3" name="campus" value="likes_value[2]" [(ngModel)]="message.likes_temp[2]" />
+			<br>
+			<label class="box" for="like4">4) {{likes_value[3]}}</label>
+			<input type="checkbox" id="like4" name="campus" value="likes_value[3]" [(ngModel)]="message.likes_temp[3]" />
+			<br>
+			<label class="box" for="like5">5) {{likes_value[4]}}</label>
+			<input type="checkbox" id="like5" name="campus" value="likes_value[4]" [(ngModel)]="message.likes_temp[4]" />
+			<br>
+			<label class="box" for="like6">6) {{likes_value[5]}}</label>
+			<input type="checkbox" id="like6" name="campus" value="likes_value[5]" [(ngModel)]="message.likes_temp[5]" />
+			
+			<br><br>
+			<p class="question">How you became interested in the university?</p>
+			<label class="box" for="interest1">1) Friends</label>
+			<input type="radio" id="interest1" name="interest" value="friends"  [(ngModel)]="message.interest"/><br>
+			<label class="box" for="interest2">2) Television</label>
+			<input type="radio" id="interest2" name="interest" value="television"  [(ngModel)]="message.interest"/><br>
+			<label class="box" for="interest3">3) Internet</label>
+			<input type="radio" id="interest3" name="interest" value="Internet" [(ngModel)]="message.interest" /><br>
+			<label class="box" for="interest4">4) other</label>
+			<input type="radio" id="interest4" name="interest" value="other"  [(ngModel)]="message.interest"/><br>
+			
+			<br>
+			<p class="question">What is your likelihood of recommending this university to prospective students?</p>
+			<select id="likelihood" name="recommendationLevel" [(ngModel)]="message.recommendationLevel">
+    		  <option value="Very Likely">Very Likely</option>
+    		  <option value="Likely">Likely</option>
+    		  <option value="Unlikely">Unlikely</option>
+    		  <option value="Very Unlikely">Very Unlikely</option>
+   			 </select>
+			
+
+			<br><br>
+			<p class="question">Join the raffle to win a free movie ticket!!! (Enter at least 10 numbers(1-100) separated by comma)</p>
+			<input class="whole" type="text" name="raffle" placeholder="eg: 24,5,78,1,89....."[(ngModel)]="message.raffleNumbers">
+		
+			<br><br>
+			<p class="professional">Please leave the comments here</p>
+			<textarea id="comment" rows="5" cols="60" style="width:470px;" [(ngModel)]="message.comments"></textarea>
+			<br><br>
+			<!-- <div *ngIf="this.message.fName==''||this.message.lName==''||this.message.address==''">
+				Please fill in all the personla info
+			</div> -->
+			<button type="submit" (click)="onClickSubmit()">Submit</button>
+			<button type="button" (click)="cancel()">Cancel</button>	
+		</form>
+		
+		</div>
+	
