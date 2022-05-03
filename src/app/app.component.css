@@ -1,0 +1,9 @@
+#fixed {
+    position: fixed;
+    width:100%;
+}
+
+::ng-deep * {
+    margin: 0;
+    padding: 0;
+}

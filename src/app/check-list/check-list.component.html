@@ -1,18 +1,57 @@
-<h1 align="center">Survey Forms-</h1>
-<div *ngFor="let survey of this.surveys">
-    <!-- need to sort by date -->
-    <pre>FIRST NAME: {{survey['firstName']}}</pre>   
-    <pre>LAST NAME: {{survey['lastName']}}</pre>
-    <pre>ADDRESS: {{survey['streetaddress']}}</pre>  
-    <pre>CITY: {{survey['city']}}</pre>
-    <pre>STATE: {{survey['state']}}</pre>        
-    <pre>ZIP: {{survey['zip']}}</pre>
-    <pre>PHONE: {{survey['phone']}}</pre>      
-    <pre>EMAIL: {{survey['email']}}</pre>
-    <pre>SUBMIT DATE: {{survey['date']}}</pre>
-    <pre>What do you like the most about the campus? {{survey['likes']}}</pre>
-    <pre>How you became interested in the university? {{survey['interest']}}</pre>
-    <pre>How likely are you going to recommend this school to other prospective students? {{survey['recommendationLevel']}}</pre>
-    
-    <hr>
+
+<div id="title">Survey Form Submissions</div>
+<div id="container">
+    <div *ngFor="let survey of this.surveys" class="survey">
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td> {{survey['firstName']}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td> {{survey['lastName']}}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>{{survey['streetAddress']}}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{survey['city']}}</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>{{survey['state']}}</td>
+            </tr>
+            <tr>
+                <td>Zip</td>
+                <td>{{survey['zip']}}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{survey['phone']}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{survey['email']}}</td>
+            </tr>
+            <tr>
+                <td>Submission Date</td>
+                <td>{{survey['date']}}</td>
+            </tr>
+            <tr>
+                <td>What do you like the most about the campus? </td>
+                <td>{{survey['likes']}}</td>
+            </tr>
+            <tr>
+                <td>How you became interested in the university?</td>
+                <td>{{survey['interest']}}</td>
+            </tr>
+            <tr>
+                <td>How likely are you going to recommend this school to other prospective students?</td>
+                <td> {{survey['recommendationLevel']}}</td>
+            </tr>
+        </table>
+
+</div>
 </div>

@@ -3,7 +3,7 @@ export class Survey{
   
     firstName : string = '';
     lastName : string = '';
-    streetaddress : string = '';
+    streetAddress : string = '';
     city : string = '';
     state : string = '';
     zip : number = 0;

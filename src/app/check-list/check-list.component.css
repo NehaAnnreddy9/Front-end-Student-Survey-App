@@ -1,1 +1,48 @@
 
+
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+#title {
+    font-size: 2.5em;
+    background-color: antiquewhite;
+    display: block;
+    margin: auto;
+    width: 768px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.survey {
+    border-radius: 5px;
+    width: 768px;
+    display: block;
+    margin: auto;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: lightcyan;}
+
+td {
+    padding: 2px;
+}
+td:nth-child(1) {
+    width: 500px;
+    text-align: left;
+}
+td:nth-child(2) {
+    width: 100px;
+    text-align: right;
+}
+
+table {
+    width: 100%;
+}
