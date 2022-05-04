@@ -1,1 +1,28 @@
+#container {
+    width: 768px;
+    display: block;
+    margin: auto;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
 
+.option {
+    background-color: bisque;
+    margin: 5px;
+    padding: 30px;
+}
+
+.option:hover {
+    background-color: orange;
+    margin: 5px;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 1.5em;
+}

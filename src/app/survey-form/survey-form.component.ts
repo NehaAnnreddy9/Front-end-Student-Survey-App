@@ -17,7 +17,7 @@ import { CheckboxRequiredValidator } from '@angular/forms';
 
 
 export class SurveyFormComponent implements OnInit {
-  url: string = 'https://560a-173-66-0-82.ngrok.io/backend/api/v1/survey'
+  url: string = 'http://localhost:8080/backend/api/v1/survey'
   message:Survey = new Survey()
   likes_value:string[] = ['Students','Location','Campus','Dorm rooms','Atmosphere','Sports'] 
   today: string = new Date().toDateString();
@@ -32,32 +32,16 @@ export class SurveyFormComponent implements OnInit {
   likesTake (b:boolean[]):string{
     let temp='';
     b.forEach((value, index) => {
-      value?(temp=temp+'  '+this.likes_value[index]):temp=temp;
+      value?(temp=temp+' '+this.likes_value[index]):temp=temp;
     });
     return temp;
   }
   checkInfo():boolean{
-    return this.message.firstName==''||this.message.lastName==''||this.message.streetaddress==''||this.message.email==''||this.message.city==''||
+    return this.message.firstName==''||this.message.lastName==''||this.message.streetAddress==''||this.message.email==''||this.message.city==''||
     this.message.state==''||this.message.phone==''||this.message.date==''||this.message.zip==0;
   }
 
   onClickSubmit():void {  
-    //this.message.date = this.today;
-    let body ="firstName="+this.message.firstName+"&"
-            +"lastName="+this.message.lastName+"&"
-            +"streetaddress="+this.message.streetaddress +"&"
-            +"city="+this.message.city+"&"
-            +"state="+this.message.state+"&"
-            +"zip="+this.message.zip+"&"
-            +"phone="+this.message.phone+"&"
-            +"email="+this.message.email+"&"
-            +"date="+this.message.date+"&"
-            +"likes="+this.likesTake(this.message.likes_temp)+"&"
-            +"interest="+this.message.interest+"&"
-            +"recommendationLevel="+this.message.recommendationLevel+"&"
-            +"raffleNumbers="+this.message.raffleNumbers+"&"
-            +"comments="+this.message.comments;
-
 
     
     if(this.checkInfo()){
@@ -65,13 +49,22 @@ export class SurveyFormComponent implements OnInit {
     }
     else{
       //alert("reached");
-      this.http.post('https://560a-173-66-0-82.ngrok.io/backend/api/v1/survey',body).subscribe(
-        succeed=>{
-          alert('Form submitted.\n'  + body);      
-          this.router.navigate(['/app-home']);
+      this.message.likes = this.likesTake(this.message.likes_temp);
+      this.http.post(this.url, this.message).subscribe(
+        succeed=>{// all good
+          alert('Form submitted.\n' );      
+          this.router.navigate(['/']);
         },
         error=>{
-          alert('Failed to submit the form\n' + body);
+          if (error['status'] == 200) { // just a parsing error due to mimetype, all good
+            alert('Form submitted.\n' );      
+            this.router.navigate(['/']);
+            // Something went wrong
+          } else {
+            alert('Failed to submit the form\n');
+            this.router.navigate(['/']);
+          }
+         
         }
       );
       return;
@@ -80,6 +73,6 @@ export class SurveyFormComponent implements OnInit {
   }
   cancel():void{
     alert("Are you sure you want to cancel?")
-    this.router.navigate(['/app-home'])
+    this.router.navigate(['/'])
   }
 }

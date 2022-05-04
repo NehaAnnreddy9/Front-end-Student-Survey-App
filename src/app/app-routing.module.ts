@@ -11,7 +11,7 @@ const routes: Routes = [
     component: SurveyFormComponent
   } ,
   {
-    path:'home',
+    path:'',
     component: HomeComponent
   } ,
   {

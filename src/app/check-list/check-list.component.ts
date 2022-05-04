@@ -12,7 +12,7 @@ import { catchError, map, tap, finalize, retry } from 'rxjs/operators';
 })
 export class CheckListComponent implements OnInit {
 
-  url: string = 'https://560a-173-66-0-82.ngrok.io/backend/api/v1/survey'
+  url: string = 'http://localhost:8080/backend/api/v1/survey'
   surveys: Survey[]=[]
   constructor(private http:HttpClient) { }
 
