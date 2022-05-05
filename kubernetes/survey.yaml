@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: survey-frontend-deployment
+  labels:
+    app: survey-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: survey-frontend
+  template:
+    metadata:
+      labels:
+        app: survey-frontend
+    spec:
+      containers:
+      - name: survey-frontend-image
+        image: rdlgmu/survey-frontend:$BUILD_NUMBER
+        ports:
+        - containerPort: 80
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: survey-frontend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: survey-frontend
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+        
