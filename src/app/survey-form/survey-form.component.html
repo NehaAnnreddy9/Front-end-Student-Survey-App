@@ -1,11 +1,9 @@
-
+<!--HTML file to design the display for student survey form-->
 		<h1>STUDENT SURVEY FORM</h1>
 		<h5>Fields with * are required fields</h5>
 		<div class="form">
 		<form  #surveyForm = "ngForm" >
-		<!-- <form method="post" action="localhost:8080/swe645-restful-api/restful/survey/create" >  -->
 
-			<!---<h2>Personal Info (Date: {{today}})</h2>-->
 			<label class="left" for="fName">First Name*</label>
 			<input  class="whole" type="text" id="firstName" name="fName" placeholder="First name..." required="required" [(ngModel)]="message.firstName" />
       <br><br>
@@ -85,12 +83,10 @@
 			<p class="professional">Please leave the comments here</p>
 			<textarea id="comment" rows="5" cols="60" style="width:470px;" [(ngModel)]="message.comments"></textarea>
 			<br><br>
-			<!-- <div *ngIf="this.message.fName==''||this.message.lName==''||this.message.address==''">
-				Please fill in all the personla info
-			</div> -->
+			
 			<button type="submit" (click)="onClickSubmit()">Submit</button>
 			<button type="button" (click)="cancel()">Cancel</button>	
+      
 		</form>
-		
 		</div>
 	
