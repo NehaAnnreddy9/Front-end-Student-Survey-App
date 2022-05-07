@@ -36,12 +36,12 @@ export class SurveyFormComponent implements OnInit {
     });
     return temp;
   }
-  checkInfo():boolean{
+  checkInfo():boolean{  //Function to check if all required fields are filled or not
     return this.message.firstName==''||this.message.lastName==''||this.message.streetAddress==''||this.message.email==''||this.message.city==''||
     this.message.state==''||this.message.phone==''||this.message.date==''||this.message.zip==0;
   }
 
-  onClickSubmit():void {  
+  onClickSubmit():void {  //Upon clicking submit this method is called
 
     
     if(this.checkInfo()){
@@ -49,20 +49,20 @@ export class SurveyFormComponent implements OnInit {
     }
     else{
       //alert("reached");
-      this.message.likes = this.likesTake(this.message.likes_temp);
-      this.http.post(this.url, this.message).subscribe(
+      this.message.likes = this.likesTake(this.message.likes_temp); //takes all the checkbox options that were marked
+      this.http.post(this.url, this.message).subscribe( //HTTP post method to send the filled survey data to the server
         succeed=>{// all good
-          alert('Form submitted.\n' );      
-          this.router.navigate(['/']);
+          alert('Form submitted.\n' );  //pop-up to indicate that the form has been successfully submitted  
+          this.router.navigate(['/']); //To go back to homepage once form is submitted
         },
         error=>{
           if (error['status'] == 200) { // just a parsing error due to mimetype, all good
             alert('Form submitted.\n' );      
-            this.router.navigate(['/']);
+            this.router.navigate(['/']);//To go back to homepage once form is submitted
             // Something went wrong
           } else {
             alert('Failed to submit the form\n');
-            this.router.navigate(['/']);
+            this.router.navigate(['/']); //To go back to homepage if form failed to submit
           }
          
         }
@@ -71,8 +71,8 @@ export class SurveyFormComponent implements OnInit {
     }  
       
   }
-  cancel():void{
+  cancel():void{ //Method called upon clicking cancel
     alert("Are you sure you want to cancel?")
-    this.router.navigate(['/'])
+    this.router.navigate(['/'])//To go back to homepage
   }
 }
