@@ -1,3 +1,4 @@
+//Declaring a Survey class to be used in the survey-form.component.ts 
 export class Survey{
     constructor(){}
   
