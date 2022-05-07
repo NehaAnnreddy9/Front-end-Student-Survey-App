@@ -17,18 +17,18 @@ export class CheckListComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.getSurvey()
+    this.getSurvey() //Function to receive the survey form data from the server
     .subscribe(
       res=>{
         console.log(res);
         this.surveys = res['body'];
       },
-      error=>alert('Not able to request the content\n')
+      error=>alert('Not able to request the content\n') //A pop-up to let the user know that the data could not be accessed
       );
   }
 
   getSurvey():Observable<any>{
-    return this.http.get(this.url, {observe:'response'});
+    return this.http.get(this.url, {observe:'response'});//HTTP get method to receive the data from the server
   }
 
 }
