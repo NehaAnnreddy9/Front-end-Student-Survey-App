@@ -5,6 +5,7 @@ import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { CheckListComponent } from './check-list/check-list.component';
 import { HomeComponent } from './home/home.component';
 
+//Routes for navigation between components
 const routes: Routes = [
   {
     path:'survey-form',
